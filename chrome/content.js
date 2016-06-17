@@ -27,7 +27,6 @@ chrome.extension.onMessage.addListener( function(request,sender,sendResponse)
 	if (sender.id!=chrome.runtime.id)
 		return console.warn("rejected sender id",sender.id);
 	
-	console.log(request,sender,request.method);
 	if( request.method == "positiveall")
 	{
 		$("input[value=positive]").click();
