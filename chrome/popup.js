@@ -5,7 +5,7 @@ $(function(){
 
 	$('.openfeedback').click(function(){
 		for (var x=1;x<21;x++)
-			chrome.tabs.create({url: "http://feedback.ebay.com/ws/eBayISAPI.dll?LeaveFeedback2&page=" + x + "&items=100&show_as=all"});
+			chrome.tabs.create({url: "http://feedback.ebay.com/ws/eBayISAPI.dll?LeaveFeedback2&page=" + x + "&items=25&show_as=all"});
 	});
 	
 	function sendmessage(msg){
