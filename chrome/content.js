@@ -19,7 +19,25 @@ if (window.location.hostname=="feedback.ebay.com")
 	$("input[value=positive]").click(function(){positive.apply(this)});
 
 	// $("input[value=positive]").click();
+} 
+
+// Ebay programers are dumbasses who can't loadbalance their server. 
+// This fixes a but when their sub par servers time out on an SQL query.
+// Note to ebay: Stop using bubblememmory storage for your shit database servers.
+if (window.location.hostname=="cart.payments.ebay.com")
+{
+	if ($("body").text().indexOf("We were unable to load your cart.")!=-1)
+		location.reload();
 }
+
+if (window.location.toString().indexOf("https://checkout.ebay.com/xo/view?pagename=success")==0
+ || window.location.toString().indexOf("https://mbuy.ebay.com/xo?action=success")==0
+ 
+)
+{
+	window.location="http://cart.payments.ebay.com/sc/ptc";
+}
+
 
 chrome.extension.onMessage.addListener( function(request,sender,sendResponse)
 {
